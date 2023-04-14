@@ -8,12 +8,20 @@ import 'dart:math' as math;
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:html' as html;
 
-class Scene extends StatelessWidget {
+class Scene extends StatefulWidget {
+  @override
+  State<Scene> createState() => _SceneState();
+}
+
+class _SceneState extends State<Scene> {
+  final ScrollController _controller = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 1920;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
+
     return Container(
       width: double.infinity,
       child: Container(
@@ -252,7 +260,9 @@ class Scene extends StatelessWidget {
                                 width: 29 * fem,
                                 height: 41 * fem,
                                 child: TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    _controller.jumpTo(100);
+                                  },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
@@ -279,7 +289,16 @@ class Scene extends StatelessWidget {
                                 width: 36 * fem,
                                 height: 41 * fem,
                                 child: TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    // _controller.position.jumpTo(100);
+                                    _controller.animateTo(
+                                      _controller.position.maxScrollExtent,
+                                      duration: Duration(seconds: 1),
+                                      curve: Curves.ease,
+                                    );
+
+                                    debugPrint(_controller.position.toString());
+                                  },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
@@ -715,7 +734,12 @@ class Scene extends StatelessWidget {
                                           left: 766.4904785156 * fem,
                                           top: 4 * fem,
                                           child: TextButton(
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              setState(() {
+                                                _controller.jumpTo(_controller
+                                                    .position.maxScrollExtent);
+                                              });
+                                            },
                                             style: TextButton.styleFrom(
                                               padding: EdgeInsets.zero,
                                             ),
@@ -1244,15 +1268,4 @@ class Scene extends StatelessWidget {
     }
     // html.window.open(url, 'sBox');
   }
-
-  // Future<void> _launchURL() async {
-  //   const url = 'https://github.com/trinetron/sbox';
-  //   final uri = Uri.parse(url);
-  //   if (await canLaunchUrl(uri)) {
-  //     await launchUrl(uri);
-  //     debugPrint('launch $url');
-  //   } else {
-  //     debugPrint('Could not launch $url');
-  //   }
-  // }
 }
