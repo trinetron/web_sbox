@@ -8,6 +8,9 @@ class MyCustomScrollBehavior extends MaterialScrollBehavior {
         PointerDeviceKind.touch,
         PointerDeviceKind.mouse,
       };
+  Set<PointerSignalKind> get scrollDevices => {
+        PointerSignalKind.scroll,
+      };
 }
 
 TextStyle SafeGoogleFont(
