@@ -39,6 +39,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^3.0.1
   url_launcher: ^6.1.10
+  rive: ^0.9.0
+  easy_localization: ^3.0.1
+  easy_localization_loader: ^1.0.1+1
 
 dev_dependencies:
   flutter_test:
@@ -68,7 +71,8 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/page-1/images/
-
+    - assets/
+    - lib/models/languages/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

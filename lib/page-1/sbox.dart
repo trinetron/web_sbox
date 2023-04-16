@@ -1,12 +1,15 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/models/languages/translat_locale_keys.g.dart';
 import 'package:myapp/utils.dart';
 import 'dart:math' as math;
 
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:html' as html;
+import 'package:rive/rive.dart';
 
 class Scene extends StatefulWidget {
   @override
@@ -55,7 +58,14 @@ class _SceneState extends State<Scene> {
                     left: 978 * fem,
                     top: 1 * fem,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _controller.animateTo(
+                          1900 * fem,
+                          duration: Duration(seconds: 1),
+                          curve: Curves.ease,
+                        );
+                        //_controller.position.jumpTo(1300);
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -67,13 +77,13 @@ class _SceneState extends State<Scene> {
                         ),
                         child: Center(
                           child: Text(
-                            'DOWNLOAD',
+                            LocaleKeys.c_dload.tr(),
                             style: SafeGoogleFont(
                               'PT Sans',
-                              fontSize: 14 * ffem,
+                              fontSize: 18 * ffem,
                               fontWeight: FontWeight.w700,
                               height: 1.2925 * ffem / fem,
-                              color: Color(0xffffffff),
+                              color: Color(0xffdfdfdf),
                             ),
                           ),
                         ),
@@ -85,7 +95,13 @@ class _SceneState extends State<Scene> {
                     left: 1119 * fem,
                     top: 1 * fem,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _controller.animateTo(
+                          3300 * fem,
+                          duration: Duration(seconds: 1),
+                          curve: Curves.ease,
+                        );
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -97,13 +113,13 @@ class _SceneState extends State<Scene> {
                         ),
                         child: Center(
                           child: Text(
-                            'SECURITY POLICY',
+                            LocaleKeys.c_sec_pol.tr(),
                             style: SafeGoogleFont(
                               'PT Sans',
-                              fontSize: 14 * ffem,
+                              fontSize: 16 * ffem,
                               fontWeight: FontWeight.w700,
                               height: 1.2925 * ffem / fem,
-                              color: Color(0xff969696),
+                              color: Color(0xffdfdfdf),
                             ),
                           ),
                         ),
@@ -115,7 +131,13 @@ class _SceneState extends State<Scene> {
                     left: 1251 * fem,
                     top: 1 * fem,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _controller.animateTo(
+                          4120 * fem,
+                          duration: Duration(seconds: 1),
+                          curve: Curves.ease,
+                        );
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -127,13 +149,13 @@ class _SceneState extends State<Scene> {
                         ),
                         child: Center(
                           child: Text(
-                            'MANUAL',
+                            LocaleKeys.c_man.tr(),
                             style: SafeGoogleFont(
                               'PT Sans',
-                              fontSize: 14 * ffem,
+                              fontSize: 18 * ffem,
                               fontWeight: FontWeight.w700,
                               height: 1.2925 * ffem / fem,
-                              color: Color(0xff969696),
+                              color: Color(0xffdfdfdf),
                             ),
                           ),
                         ),
@@ -146,10 +168,12 @@ class _SceneState extends State<Scene> {
                     top: 16.3000183105 * fem,
                     child: Align(
                       child: SizedBox(
-                        width: 36 * fem,
+                        width: 40 * fem,
                         height: 41 * fem,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            context.setLocale(const Locale('zh'));
+                          },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
                           ),
@@ -173,10 +197,12 @@ class _SceneState extends State<Scene> {
                     top: 16.3000183105 * fem,
                     child: Align(
                       child: SizedBox(
-                        width: 32 * fem,
+                        width: 40 * fem,
                         height: 41 * fem,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            context.setLocale(const Locale('es'));
+                          },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
                           ),
@@ -200,10 +226,12 @@ class _SceneState extends State<Scene> {
                     top: 16.3000183105 * fem,
                     child: Align(
                       child: SizedBox(
-                        width: 38 * fem,
+                        width: 40 * fem,
                         height: 41 * fem,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            context.setLocale(const Locale('ru'));
+                          },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
                           ),
@@ -227,11 +255,11 @@ class _SceneState extends State<Scene> {
                     top: 16.3000183105 * fem,
                     child: Align(
                       child: SizedBox(
-                        width: 29 * fem,
+                        width: 40 * fem,
                         height: 41 * fem,
                         child: TextButton(
                           onPressed: () {
-                            _controller.jumpTo(100);
+                            context.setLocale(const Locale('fr'));
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
@@ -256,16 +284,12 @@ class _SceneState extends State<Scene> {
                     top: 16.3000183105 * fem,
                     child: Align(
                       child: SizedBox(
-                        width: 36 * fem,
+                        width: 40 * fem,
                         height: 41 * fem,
                         child: TextButton(
                           onPressed: () {
+                            context.setLocale(const Locale('en'));
                             // _controller.position.jumpTo(100);
-                            _controller.animateTo(
-                              _controller.position.maxScrollExtent,
-                              duration: Duration(seconds: 1),
-                              curve: Curves.ease,
-                            );
 
                             debugPrint(_controller.position.toString());
                           },
@@ -393,10 +417,26 @@ class _SceneState extends State<Scene> {
                                   0 * fem, 0 * fem, 0 * fem, 8.73 * fem),
                               width: 318.57 * fem,
                               height: 431.8 * fem,
-                              child: Image.asset(
-                                'assets/page-1/images/zag1.png',
-                                width: 318.57 * fem,
-                                height: 431.8 * fem,
+                              child: Stack(
+                                children: [
+                                  Image.asset(
+                                    'assets/page-1/images/zag2.png',
+                                    width: 318.57 * fem,
+                                    height: 431.8 * fem,
+                                  ),
+                                  Center(
+                                    child: SizedBox(
+                                      width: 150 * fem,
+                                      height: 150 * fem,
+                                      child: RiveAnimation.asset(
+                                        fit: BoxFit.fill,
+                                        'assets/logo6.riv',
+                                        onInit: onInit,
+                                        alignment: Alignment.center,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                             Container(
@@ -465,7 +505,7 @@ class _SceneState extends State<Scene> {
                       ),
                       Text(
                         // txt168B (5:37)
-                        'ЭТО ПРИЛОЖЕНИЕ ПОМОЖЕТ ВАМ ХРАНИТЬ В БЕЗОПАСНОСТИ ВАШИ ДАННЫЕ',
+                        LocaleKeys.c_txt1.tr(),
                         textAlign: TextAlign.center,
                         style: SafeGoogleFont(
                           'PT Sans',
@@ -509,7 +549,7 @@ class _SceneState extends State<Scene> {
                             width: 1607 * fem,
                             height: 1200 * fem,
                             child: Text(
-                              'Наша команда экспертов разработала уникальную систему шифрования на основе самых стойких криптографических алгоритмов, которая защищает данные от хакеров и злоумышленников.\n\nС помощью этого приложения вы можете легко и быстро сохранить информацию о всех своих аккаунтах и банковских картах в одном месте. Вы больше не забудете свои пароли или не будете тратить время на поиск их в записной книжке или на бумажке, спрятанной где-то в доме. Приложение не имеет подключения в интернет, ваши данные хранятся только на вашем устройстве.\n\nНо наша система не только хранит пароли, но и заполняет их при входе на сайты там где вы указываете, что экономит ваше время и упрощает процесс входа.\n\nЭто приложение полностью безопасно и надежно, и ваши данные будут защищены от несанкционированного доступа. Мы также предоставляем возможность создавать резервные копии ваших данных, чтобы вы всегда могли иметь доступ к ним. Например если ваш телефон сломался или вы захотели его заменить на новый, то всё что вам нужно это заранее сохранить бекап файл на SD карту и когда это потребуется то переставьте SD карту на новый телефон и за 10 секунд восстановите все ваши данные.',
+                              LocaleKeys.c_txt2.tr(),
                               textAlign: TextAlign.center,
                               style: SafeGoogleFont(
                                 'PT Sans',
@@ -577,7 +617,7 @@ class _SceneState extends State<Scene> {
                                         ),
                                         child: Center(
                                           child: Text(
-                                            'MANUAL',
+                                            LocaleKeys.c_man.tr(),
                                             textAlign: TextAlign.center,
                                             style: SafeGoogleFont(
                                               'PT Sans',
@@ -640,7 +680,7 @@ class _SceneState extends State<Scene> {
                                           maxWidth: 1122 * fem,
                                         ),
                                         child: Text(
-                                          'Your data is stored only on your device and managed only by you.\n\n● This app does not connect to the internet\n● This app does not transfer data to third parties\n● This app does not move or transform data without the user\'s knowledge',
+                                          LocaleKeys.c_txt4.tr(),
                                           style: SafeGoogleFont(
                                             'PT Sans',
                                             fontSize: 48 * ffem,
@@ -674,7 +714,7 @@ class _SceneState extends State<Scene> {
                                                 maxWidth: 178 * fem,
                                               ),
                                               child: Text(
-                                                'SECURITY POLICY',
+                                                LocaleKeys.c_sec_pol.tr(),
                                                 textAlign: TextAlign.center,
                                                 style: SafeGoogleFont(
                                                   'PT Sans',
@@ -713,7 +753,7 @@ class _SceneState extends State<Scene> {
                                           maxWidth: 1506 * fem,
                                         ),
                                         child: Text(
-                                          'Попробуйте приложение sBox сегодня и убедитесь, насколько простым и удобным может быть процесс хранения данных!',
+                                          LocaleKeys.c_txt6.tr(),
                                           textAlign: TextAlign.center,
                                           style: SafeGoogleFont(
                                             'PT Sans',
@@ -978,7 +1018,7 @@ class _SceneState extends State<Scene> {
                                             ),
                                             Positioned(
                                               // buttqrTsh (17:6)
-                                              left: 766 * fem,
+                                              right: 450 * fem,
                                               top: 316 * fem,
                                               child: TextButton(
                                                 onPressed: () {},
@@ -987,10 +1027,10 @@ class _SceneState extends State<Scene> {
                                                 ),
                                                 child: Container(
                                                   padding: EdgeInsets.fromLTRB(
-                                                      49.41 * fem,
-                                                      48.31 * fem,
-                                                      52.46 * fem,
-                                                      52.63 * fem),
+                                                      1.41 * fem,
+                                                      1.31 * fem,
+                                                      1.46 * fem,
+                                                      1.63 * fem),
                                                   width: 541.49 * fem,
                                                   height: 543 * fem,
                                                   decoration: BoxDecoration(
@@ -1002,101 +1042,63 @@ class _SceneState extends State<Scene> {
                                                             40 * fem),
                                                   ),
                                                   child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
                                                     crossAxisAlignment:
                                                         CrossAxisAlignment
                                                             .center,
                                                     children: [
+                                                      Text(
+                                                        LocaleKeys.c_push_me
+                                                            .tr(),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: SafeGoogleFont(
+                                                          'PT Sans',
+                                                          fontSize: 30 * ffem,
+                                                          fontWeight:
+                                                              FontWeight.w100,
+                                                          height: 1.2925 *
+                                                              ffem /
+                                                              fem,
+                                                          color:
+                                                              Color(0xffffffff),
+                                                        ),
+                                                      ),
                                                       Container(
-                                                        // autogroupzo6bxhy (R8W8pavgHuTk9r8jYBzo6B)
-                                                        margin:
-                                                            EdgeInsets.fromLTRB(
-                                                                0 * fem,
-                                                                0 * fem,
-                                                                0 * fem,
-                                                                11.55 * fem),
-                                                        width: double.infinity,
-                                                        child: Row(
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Container(
-                                                              // lblosmarkCcK (17:10)
-                                                              margin: EdgeInsets
-                                                                  .fromLTRB(
-                                                                      0 * fem,
-                                                                      0 * fem,
-                                                                      0 * fem,
-                                                                      0 * fem),
-                                                              child: Transform
-                                                                  .rotate(
-                                                                angle:
-                                                                    -math.pi /
-                                                                        2,
-                                                                child: Text(
-                                                                  'APP',
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .center,
-                                                                  style:
-                                                                      SafeGoogleFont(
-                                                                    'PT Sans',
-                                                                    fontSize:
-                                                                        36 *
-                                                                            ffem,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w400,
-                                                                    height:
-                                                                        1.2925 *
-                                                                            ffem /
-                                                                            fem,
-                                                                    color: Color(
-                                                                        0xffffffff),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                            Container(
-                                                              // rectangle154uR (17:8)
-                                                              // margin: EdgeInsets
-                                                              //     .fromLTRB(
-                                                              //         0 * fem,
-                                                              //         1 * fem,
-                                                              //         0 * fem,
-                                                              //         0 * fem),
-                                                              width:
-                                                                  351.64 * fem,
-                                                              height:
-                                                                  376.72 * fem,
-                                                              child: ClipRRect(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(10 *
-                                                                            fem),
-                                                                child:
-                                                                    Image.asset(
-                                                                  'assets/page-1/images/rectangle-15-qaB.png',
-                                                                  fit: BoxFit
-                                                                      .contain,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ],
+                                                        // rectangle154uR (17:8)
+                                                        // margin: EdgeInsets
+                                                        //     .fromLTRB(
+                                                        //         0 * fem,
+                                                        //         1 * fem,
+                                                        //         0 * fem,
+                                                        //         0 * fem),
+                                                        width: 351.64 * fem,
+                                                        height: 376.72 * fem,
+                                                        child: ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      10 * fem),
+                                                          child: Image.asset(
+                                                            'assets/page-1/images/rectangle-15-qaB.png',
+                                                            fit: BoxFit.contain,
+                                                          ),
                                                         ),
                                                       ),
                                                       Container(
                                                         // lblosKKZ (17:9)
                                                         margin:
                                                             EdgeInsets.fromLTRB(
-                                                                67.96 * fem,
+                                                                0.96 * fem,
                                                                 0 * fem,
                                                                 0 * fem,
                                                                 0 * fem),
                                                         child: Text(
                                                           'WINDOWS',
-                                                          textAlign:
-                                                              TextAlign.center,
+                                                          // textAlign:
+                                                          //     TextAlign.center,
                                                           style: SafeGoogleFont(
                                                             'PT Sans',
                                                             fontSize: 36 * ffem,
@@ -1132,7 +1134,7 @@ class _SceneState extends State<Scene> {
                                                 ),
                                                 child: Center(
                                                   child: Text(
-                                                    'DOWNLOAD',
+                                                    LocaleKeys.c_dload.tr(),
                                                     textAlign: TextAlign.center,
                                                     style: SafeGoogleFont(
                                                       'PT Sans',
@@ -1168,7 +1170,7 @@ class _SceneState extends State<Scene> {
                                                 maxWidth: 1453 * fem,
                                               ),
                                               child: Text(
-                                                'Также если вы используете устройства на разных операционных системах это приложение доступно для всех современных платформ iOS, Android, MacOS, Windows, Linux, это позволит вам через резервное копирование самим перемещать данные между вашими устройствами.',
+                                                LocaleKeys.c_txt3.tr(),
                                                 textAlign: TextAlign.center,
                                                 style: SafeGoogleFont(
                                                   'PT Sans',
@@ -1208,7 +1210,7 @@ class _SceneState extends State<Scene> {
                                         ),
                                         child: Center(
                                           child: Text(
-                                            'YOU CAN EASILY TRANSFER DATA BETWEEN PROGRAMS',
+                                            LocaleKeys.c_txt5.tr(),
                                             textAlign: TextAlign.center,
                                             style: SafeGoogleFont(
                                               'PT Sans',
@@ -1305,6 +1307,17 @@ class _SceneState extends State<Scene> {
         ),
       ),
     );
+  }
+
+  void onInit(Artboard artboard) async {
+    var controller = StateMachineController.fromArtboard(
+      artboard,
+      'SM2',
+      //onStateChange: onStateChange,
+    ) as StateMachineController;
+    controller.isActive = true;
+
+    artboard.addController(controller);
   }
 
   Future<void> _launchUrl() async {

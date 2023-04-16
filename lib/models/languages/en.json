@@ -1,0 +1,16 @@
+{
+
+"c_dload" : "DOWNLOAD",
+"c_sec_pol" : "SECURITY POLICY",
+"c_man" : "MANUAL",
+"c_txt1" : "THIS APPLICATION WILL HELP YOU KEEP YOUR DATA SAFE",
+"c_txt2" : "Our team of experts has developed a unique encryption system based on the most robust cryptographic algorithms that protects data from hackers and intruders.With this application, you can easily and quickly save information about all your accounts and bank cards in one place. You will no longer forget your passwords or waste time searching for them in a notebook or on a piece of paper hidden somewhere in the house. The application does not have an internet connection, your data is stored only on your device.\n\n No our system not only stores passwords, but also fills them in when you log in to sites where you specify, which saves you time and simplifies the login process.\nThis application is completely safe and secure, and your data will be protected from unauthorized access. We also provide the ability to create backups of your data so that you can always have access to them. For example, if your phone is broken or you want to replace it with a new one, then all you need is to save the backup file to the SD card in advance and when it is needed, then move the SD card to the new phone and restore all your data in 10 seconds.",
+"c_push_me" : "PUSH ME",
+"c_txt3" : "Also, if you use devices on different operating systems, this application is available for all modern platforms iOS, Android, macOS, Windows, Linux, this will allow you to move data between your devices yourself through backup.",
+"c_txt4" : "Your data is stored only on your device and managed only by you.\n\n● This app does not connect to the internet\n● This app does not transfer data to third parties\n● This app does not move or transform data without the users knowledge",
+"c_txt5" : "YOU CAN EASILY TRANSFER DATA BETWEEN PROGRAMS",
+"c_txt6" : "Try the sBox app today and see how simple and convenient the data storage process can be!"
+
+
+
+	}
