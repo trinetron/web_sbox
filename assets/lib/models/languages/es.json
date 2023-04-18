@@ -1,0 +1,12 @@
+{
+	"c_dload" : "DESCARGAR",
+	"c_sec_pol" : "SEGURIDAD",
+	"c_man" : "MANUAL",
+	"c_txt1" : "ESTA APLICACIÓN LE AYUDARÁ A MANTENER SUS DATOS SEGUROS",
+	"c_txt2" : "Nuestro equipo de expertos ha desarrollado un sistema de cifrado único basado en los algoritmos criptográficos más robustos que protege los datos de piratas informáticos e intrusos.Con esta aplicación, puede guardar fácil y rápidamente información sobre todas sus cuentas y tarjetas bancarias en un solo lugar. Ya no olvidará sus contraseñas ni perderá tiempo buscándolas en un cuaderno o en un papel escondido en algún lugar de la casa. La aplicación no tiene conexión a Internet, sus datos se almacenan solo en su dispositivo.\n \nNo nuestro sistema no solo almacena contraseñas, sino que también las completa cuando inicia sesión en los sitios que especifique, lo que le ahorra tiempo y simplifica el proceso de inicio de sesión.\n  Esta aplicación es completamente segura y protegida, y sus datos estarán protegidos contra el acceso no autorizado. También ofrecemos la posibilidad de crear copias de seguridad de sus datos para que siempre pueda tener acceso a ellos. Por ejemplo, si su teléfono está roto o desea reemplazarlo por uno nuevo, todo lo que necesita es guardar el archivo de respaldo en la tarjeta SD con anticipación y, cuando sea necesario, mover la tarjeta SD al nuevo teléfono y restaurar todos sus datos en 10 segundos.",
+	"c_push_me" : "ESCANÉAME",
+	"c_txt3" : "Además, si usa dispositivos en diferentes sistemas operativos, esta aplicación está disponible para todas las plataformas modernas iOS, Android, macOS, Windows, Linux, esto le permitirá mover datos entre sus dispositivos usted mismo a través de una copia de seguridad.",
+	"c_txt4" : "Sus datos se almacenan solo en su dispositivo y solo usted los administra.\n \n● Esta aplicación no se conecta a Internet \n● Esta aplicación no transfiere datos a terceros \n● Esta aplicación no mueve ni transforma datos sin el conocimiento del usuario",
+	"c_txt5" : "PUEDE TRANSFERIR DATOS FÁCILMENTE ENTRE PROGRAMAS",
+	"c_txt6" : "Pruebe la aplicación box hoy mismo y vea lo simple y conveniente que puede ser el proceso de almacenamiento de datos."
+	}
