@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/provider/assets_provider.dart';
 import 'package:myapp/utils.dart';
-//import 'package:myapp/page-1/ipad-pro-129-1.dart';
 import 'package:myapp/page-1/sbox.dart';
+import 'package:provider/provider.dart';
 
 Future<void> main() async {
 //    Localozation init
@@ -22,7 +23,14 @@ Future<void> main() async {
     ],
     path: 'lib/models/languages',
     fallbackLocale: Locale('en'),
-    child: MyApp(),
+    child: MultiProvider(
+      providers: [
+        ChangeNotifierProvider<AssetsProvider>(
+          create: (context) => AssetsProvider(),
+        ),
+      ],
+      child: MyApp(),
+    ),
   ));
 }
 

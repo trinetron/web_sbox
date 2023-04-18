@@ -42,6 +42,8 @@ dependencies:
   rive: ^0.9.0
   easy_localization: ^3.0.1
   easy_localization_loader: ^1.0.1+1
+  path_provider: ^2.0.11
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:

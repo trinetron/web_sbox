@@ -4,7 +4,9 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/models/languages/translat_locale_keys.g.dart';
+import 'package:myapp/provider/assets_provider.dart';
 import 'package:myapp/utils.dart';
+import 'package:provider/provider.dart';
 import 'dart:math' as math;
 
 import 'package:url_launcher/url_launcher.dart';
@@ -172,7 +174,9 @@ class _SceneState extends State<Scene> {
                         height: 41 * fem,
                         child: TextButton(
                           onPressed: () {
-                            context.setLocale(const Locale('zh'));
+                            context
+                                .read<AssetsProvider>()
+                                .lngSet('zh:1:1', context);
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
@@ -201,7 +205,9 @@ class _SceneState extends State<Scene> {
                         height: 41 * fem,
                         child: TextButton(
                           onPressed: () {
-                            context.setLocale(const Locale('es'));
+                            context
+                                .read<AssetsProvider>()
+                                .lngSet('es:1:1', context);
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
@@ -230,7 +236,9 @@ class _SceneState extends State<Scene> {
                         height: 41 * fem,
                         child: TextButton(
                           onPressed: () {
-                            context.setLocale(const Locale('ru'));
+                            context
+                                .read<AssetsProvider>()
+                                .lngSet('ru:1:1', context);
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
@@ -259,7 +267,9 @@ class _SceneState extends State<Scene> {
                         height: 41 * fem,
                         child: TextButton(
                           onPressed: () {
-                            context.setLocale(const Locale('fr'));
+                            context
+                                .read<AssetsProvider>()
+                                .lngSet('fr:1:1', context);
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
@@ -288,8 +298,10 @@ class _SceneState extends State<Scene> {
                         height: 41 * fem,
                         child: TextButton(
                           onPressed: () {
-                            context.setLocale(const Locale('en'));
                             // _controller.position.jumpTo(100);
+                            context
+                                .read<AssetsProvider>()
+                                .lngSet('en:1:1', context);
 
                             debugPrint(_controller.position.toString());
                           },
@@ -320,7 +332,9 @@ class _SceneState extends State<Scene> {
                         height: 61 * fem,
                         child: TextButton(
                           onPressed: () {
-                            _launchUrl();
+                            context
+                                .read<AssetsProvider>()
+                                .osSet('github', context);
                             debugPrint('tap github button');
                           },
                           style: TextButton.styleFrom(
@@ -646,7 +660,9 @@ class _SceneState extends State<Scene> {
                                                   BorderRadius.circular(
                                                       40 * fem),
                                               child: Image.asset(
-                                                'assets/page-1/images/UiRuAn.gif',
+                                                context
+                                                    .watch<AssetsProvider>()
+                                                    .docPath,
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
@@ -683,7 +699,7 @@ class _SceneState extends State<Scene> {
                                           LocaleKeys.c_txt4.tr(),
                                           style: SafeGoogleFont(
                                             'PT Sans',
-                                            fontSize: 48 * ffem,
+                                            fontSize: 46 * ffem,
                                             fontWeight: FontWeight.w400,
                                             height: 1.5 * ffem / fem,
                                             color: Color(0xffffffff),
@@ -711,14 +727,14 @@ class _SceneState extends State<Scene> {
                                           child: SizedBox(
                                             child: Container(
                                               constraints: BoxConstraints(
-                                                maxWidth: 178 * fem,
+                                                maxWidth: 250 * fem,
                                               ),
                                               child: Text(
                                                 LocaleKeys.c_sec_pol.tr(),
                                                 textAlign: TextAlign.center,
                                                 style: SafeGoogleFont(
                                                   'PT Sans',
-                                                  fontSize: 40 * ffem,
+                                                  fontSize: 35 * ffem,
                                                   fontWeight: FontWeight.w700,
                                                   height: 1.2925 * ffem / fem,
                                                   color: Color(0xffffffff),
@@ -793,9 +809,13 @@ class _SceneState extends State<Scene> {
                                               top: 4 * fem,
                                               child: TextButton(
                                                 onPressed: () {
-                                                  setState(() {
-                                                    _controller.jumpTo(100.0);
-                                                  });
+                                                  context
+                                                      .read<AssetsProvider>()
+                                                      .osSet(
+                                                          'android', context);
+
+                                                  debugPrint(
+                                                      'tap android button');
                                                 },
                                                 style: TextButton.styleFrom(
                                                   padding: EdgeInsets.zero,
@@ -841,7 +861,11 @@ class _SceneState extends State<Scene> {
                                               left: 1075.4904785156 * fem,
                                               top: 4 * fem,
                                               child: TextButton(
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  context
+                                                      .read<AssetsProvider>()
+                                                      .osSet('ios', context);
+                                                },
                                                 style: TextButton.styleFrom(
                                                   padding: EdgeInsets.zero,
                                                 ),
@@ -886,7 +910,15 @@ class _SceneState extends State<Scene> {
                                               left: 1385.4904785156 * fem,
                                               top: 5 * fem,
                                               child: TextButton(
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  context
+                                                      .read<AssetsProvider>()
+                                                      .osSet(
+                                                          'windows', context);
+
+                                                  debugPrint(
+                                                      'tap winEXE button');
+                                                },
                                                 style: TextButton.styleFrom(
                                                   padding: EdgeInsets.zero,
                                                 ),
@@ -931,7 +963,11 @@ class _SceneState extends State<Scene> {
                                               left: 1387.4904785156 * fem,
                                               top: 316 * fem,
                                               child: TextButton(
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  context
+                                                      .read<AssetsProvider>()
+                                                      .osSet('macos', context);
+                                                },
                                                 style: TextButton.styleFrom(
                                                   padding: EdgeInsets.zero,
                                                 ),
@@ -976,7 +1012,11 @@ class _SceneState extends State<Scene> {
                                               left: 1389.4904785156 * fem,
                                               top: 627 * fem,
                                               child: TextButton(
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  context
+                                                      .read<AssetsProvider>()
+                                                      .osSet('linux', context);
+                                                },
                                                 style: TextButton.styleFrom(
                                                   padding: EdgeInsets.zero,
                                                 ),
@@ -1021,7 +1061,13 @@ class _SceneState extends State<Scene> {
                                               right: 450 * fem,
                                               top: 316 * fem,
                                               child: TextButton(
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  context
+                                                      .read<AssetsProvider>()
+                                                      .osSet('github', context);
+                                                  debugPrint(
+                                                      'tap github button');
+                                                },
                                                 style: OutlinedButton.styleFrom(
                                                   padding: EdgeInsets.zero,
                                                 ),
@@ -1082,7 +1128,10 @@ class _SceneState extends State<Scene> {
                                                                   .circular(
                                                                       10 * fem),
                                                           child: Image.asset(
-                                                            'assets/page-1/images/rectangle-15-qaB.png',
+                                                            context
+                                                                .watch<
+                                                                    AssetsProvider>()
+                                                                .qrPath,
                                                             fit: BoxFit.contain,
                                                           ),
                                                         ),
@@ -1096,9 +1145,12 @@ class _SceneState extends State<Scene> {
                                                                 0 * fem,
                                                                 0 * fem),
                                                         child: Text(
-                                                          'WINDOWS',
-                                                          // textAlign:
-                                                          //     TextAlign.center,
+                                                          context
+                                                              .watch<
+                                                                  AssetsProvider>()
+                                                              .qrLbl,
+                                                          textAlign:
+                                                              TextAlign.center,
                                                           style: SafeGoogleFont(
                                                             'PT Sans',
                                                             fontSize: 36 * ffem,
@@ -1318,14 +1370,5 @@ class _SceneState extends State<Scene> {
     controller.isActive = true;
 
     artboard.addController(controller);
-  }
-
-  Future<void> _launchUrl() async {
-    const url = 'https://github.com/trinetron/sbox';
-    final uri = Uri.parse(url);
-    if (!await launchUrl(uri)) {
-      debugPrint('Could not launch $url');
-    }
-    // html.window.open(url, 'sBox');
   }
 }
